@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PACABS-DRIVER</string>
+    <string name="map_key">AIzaSyBGSjK7aKKqIMHYXUvx3RBw1l23Zt8Oybk</string>
+    <string name="pacabs_n_driver">PA CABs \n Driver</string>
+    <string name="skip">Skip</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lurem_ipsum">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</string>
+    <string name="tracking_realtime">Tracking Realtime</string>
+    <string name="earn_money">Earn Money</string>
+    <string name="enable_loc">Enable Location</string>
+    <string name="get_started">Get Started</string>
+    <string name="enable_your_location">Enable Your Location</string>
+    <string name="choose_loc">Choose your location to start find the requests around you</string>
+    <string name="use_my_location">Use My Location</string>
+    <string name="continoue">Continoue</string>
+    <string name="enter_otp_code_sent_to_your_mobile_number">Enter OTP sent to your number</string>
+    <string name="verification">OTP-Verification</string>
+    <string name="signup">Signup</string>
+    <string name="login">Login</string>
+    <string name="otp">OTP</string>
+    <string name="driver">Driver</string>
+    <string name="single_cab_owner">Single Cab Owner</string>
+    <string name="signup_with_n_phone_number"><b>Signup</b> with \nphone number</string>
+    <string name="email_format">abc@xyz.com</string>
+    <string name="number_only_digits">0123456789</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="login_with_nmobile_number"><b>Login</b> with \nmobile number</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SuccessDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/SuccessDialogAnimation</item>
+    </style>
+
+    <style name="SuccessDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/zoom_in_dialog</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out</item>
+    </style>
+</resources>

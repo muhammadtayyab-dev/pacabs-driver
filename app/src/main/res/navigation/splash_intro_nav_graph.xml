@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spasIntrohFragmentsNav"
+    app:startDestination="@id/spashFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/spashFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.splashIntroScreensFrags.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/actionGotoEnableLocFrag"
+            app:destination="@id/enableLocFragment"
+            app:enterAnim="@anim/left_to_right"
+            app:popEnterAnim="@anim/right_to_left" />
+
+        <action
+            android:id="@+id/gotoIntroFragsFragmentActions"
+            app:destination="@id/introMainFragment"
+            app:enterAnim="@anim/left_to_right"
+            app:popEnterAnim="@anim/right_to_left" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/introMainFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.splashIntroScreensFrags.IntroMainFragment"
+        android:label="IntroMainFragment"
+        tools:layout="@layout/fragment_intro_main">
+
+
+        <action
+            android:id="@+id/gotoEnabelLocFragmentActions"
+            app:destination="@id/enableLocFragment"
+            app:enterAnim="@anim/left_to_right"
+            app:popEnterAnim="@anim/right_to_left" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/enableLocFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.splashIntroScreensFrags.EnableLocationFragment"
+        android:label="@string/enable_loc"
+        tools:layout="@layout/fragment_enable_location">
+
+    </fragment>
+</navigation>

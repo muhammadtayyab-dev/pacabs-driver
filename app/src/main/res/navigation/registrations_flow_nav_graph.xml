@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registrations_flow_nav_graph"
+    app:startDestination="@id/reistrationsFowFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/reistrationsFowFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.registrationLoginFragments.LoginSinUpFragment"
+        android:label="RegistrationFlow"
+        tools:layout="@layout/fragment_login_sin_up">
+
+        <action
+            android:id="@+id/gotoOTPFragmentAction"
+            app:destination="@id/otpFragment"
+            app:enterAnim="@anim/left_to_right"
+            app:popEnterAnim="@anim/right_to_left" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.registrationLoginFragments.OTPFragment"
+        android:label="@string/verification"
+        tools:layout="@layout/fragment_o_t_p">
+
+    </fragment>
+
+</navigation>

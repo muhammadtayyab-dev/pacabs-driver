@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ErrorDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/ErrorDialogAnimation</item>
+    </style>
+
+    <style name="ErrorDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/shake_animation</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out</item>
+    </style>
+</resources>
