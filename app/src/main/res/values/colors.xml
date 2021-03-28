@@ -6,6 +6,7 @@
     <color name="colorAccent">#FFD981</color>
     <color name="colorOrangeDark">#E95123</color>
     <color name="colorOrangeLight">#FA9576</color>
+    <color name="colorOrange">#FD8702</color>
     <color name="colorBlueDark">#2A97DC</color>
     <color name="colorBlueDark2">#051CC4</color>
     <color name="colorBlueLight">#84C2EA</color>
@@ -33,6 +34,7 @@
     <color name="gray">#808080</color>
     <color name="greenColor">#B5CF64</color>
     <color name="colorWhiteLight">#F9F9F9</color>
+    <color name="colorPurple">#5151CD</color>
     <color name="colorMehron">#E81E63</color>
     <color name="colorGreenWhatsApp">#06BA63</color>
     <color name="colorGreenWhatsAppLight">#0BDF79</color>

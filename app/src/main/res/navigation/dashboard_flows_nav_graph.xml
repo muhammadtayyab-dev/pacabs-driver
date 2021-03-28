@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spasIntrohFragmentsNav"
+    app:startDestination="@id/offlineFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/offlineFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.dashboardFragments.OfflineFragment"
+        android:label="@string/offline"
+        tools:layout="@layout/fragment_offline">
+
+
+        <action
+            android:id="@+id/gotoOnlineFragAction"
+            app:destination="@id/onlineFragment"
+            app:enterAnim="@anim/left_to_right"
+            app:popEnterAnim="@anim/right_to_left"
+            app:popUpTo="@id/gotoOnlineFragAction"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/onlineFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.dashboardFragments.OnlineFragment"
+        android:label="@string/online"
+        tools:layout="@layout/fragment_online">
+
+        <action android:id="@+id/gotoOfflineFragAction"
+            app:destination="@+id/offlineFragment"
+            app:popUpTo="@id/offlineFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/left_to_right"
+            app:popEnterAnim="@anim/right_to_left"
+            />
+
+    </fragment>
+</navigation>

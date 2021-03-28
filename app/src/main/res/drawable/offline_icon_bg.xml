@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/dotted_red_circle_bg" />
+    <item
+        android:bottom="3dp"
+        android:drawable="@drawable/bg_circle_black"
+        android:end="3dp"
+        android:start="3dp"
+        android:top="3dp" />
+
+    <item
+        android:bottom="9dp"
+        android:drawable="@drawable/ic_moon"
+        android:end="9dp"
+        android:start="9dp"
+        android:top="9dp" />
+
+</layer-list>

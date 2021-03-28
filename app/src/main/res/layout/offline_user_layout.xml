@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorOrange"
+    android:padding="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/moonImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/offline_icon_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/offlineTV"
+        style="@style/headlingStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="@string/you_are_offline"
+        app:layout_constraintStart_toEndOf="@+id/moonImg"
+        app:layout_constraintTop_toTopOf="@+id/moonImg" />
+
+    <TextView
+        android:id="@+id/offlineDescTV"
+        style="@style/titleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="@string/go_online_to_start_accepting_jobs"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toEndOf="@+id/moonImg"
+        app:layout_constraintTop_toBottomOf="@+id/offlineTV" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

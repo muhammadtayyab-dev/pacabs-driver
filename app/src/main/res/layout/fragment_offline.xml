@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp"
+    tools:context=".fragments.dashboardFragments.OfflineFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/informationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:id="@+id/upperView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintBottom_toTopOf="@+id/verticalGuidline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/lowerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/gray_div_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/verticalGuidline" />
+
+                <com.techlogix.pacabs_driver.customViews.CircleImageView
+                    android:id="@+id/userImg"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_user"
+                    app:civ_border_color="@color/colorBlackLight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userNameTv"
+                    style="@style/headlingStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="User Name"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toEndOf="@+id/userImg"
+                    app:layout_constraintTop_toTopOf="@+id/userImg" />
+
+                <TextView
+                    android:id="@+id/emailTv"
+                    style="@style/titleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_format"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toEndOf="@+id/userImg"
+                    app:layout_constraintTop_toBottomOf="@+id/userNameTv" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/verticalGuidline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/walletBalanceCarView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userImg">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/walletBalanceTv"
+                            style="@style/headlingStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Wallet Balance"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/walletBalanceValueTv" />
+
+                        <TextView
+                            android:id="@+id/walletBalanceValueTv"
+                            style="@style/titleStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:text="@string/hundred_"
+                            android:textColor="@color/colorOrange"
+                            app:layout_constraintBottom_toTopOf="@+id/div"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/div"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@color/gray_div_dark"
+                            app:layout_constraintStart_toStartOf="@id/walletBalanceTv"
+                            app:layout_constraintTop_toBottomOf="@id/walletBalanceTv" />
+
+
+                        <ImageView
+                            android:id="@+id/bookingImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:src="@drawable/booking_blue_bg"
+                            app:layout_constraintEnd_toStartOf="@+id/walletImg"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/div" />
+
+                        <TextView
+                            android:id="@+id/bookingsTv"
+                            style="@style/titleStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:text="@string/bookings"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/bookingImg"
+                            app:layout_constraintStart_toStartOf="@+id/bookingImg"
+                            app:layout_constraintTop_toBottomOf="@+id/bookingImg" />
+
+
+                        <ImageView
+                            android:id="@+id/walletImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:src="@drawable/wallet_pink_bg"
+                            app:layout_constraintEnd_toStartOf="@+id/topupImg"
+                            app:layout_constraintStart_toEndOf="@+id/bookingImg"
+                            app:layout_constraintTop_toBottomOf="@+id/div" />
+
+                        <TextView
+                            android:id="@+id/walletTv"
+                            style="@style/titleStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:text="Wallet"
+
+                            app:layout_constraintEnd_toEndOf="@+id/walletImg"
+                            app:layout_constraintStart_toStartOf="@+id/walletImg"
+                            app:layout_constraintTop_toBottomOf="@+id/walletImg" />
+
+
+                        <ImageView
+                            android:id="@+id/topupImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:src="@drawable/topup_purple_bg"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/walletTv"
+                            app:layout_constraintTop_toBottomOf="@+id/div" />
+
+                        <TextView
+                            android:id="@+id/topupTv"
+                            style="@style/titleStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:text="@string/top_up"
+                            app:layout_constraintEnd_toEndOf="@+id/topupImg"
+                            app:layout_constraintStart_toStartOf="@+id/topupImg"
+                            app:layout_constraintTop_toBottomOf="@+id/topupImg" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/gernaInfoTv"
+                    style="@style/headlingStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="@string/general_information"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/walletBalanceCarView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
+                android:id="@+id/myBookingLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/informationLayout">
+
+                <ImageView
+                    android:id="@+id/bookInmg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/booking_white_bg" />
+
+                <TextView
+                    style="@style/titleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/bookInmg"
+                    android:text="@string/bookings" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/bookInmg"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray_div_dark" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/notificationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myBookingLayout">
+
+                <ImageView
+                    android:id="@+id/notificationInmg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/notification_purple_bg" />
+
+                <TextView
+                    style="@style/titleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/notificationInmg"
+                    android:text="@string/notifications" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/notificationInmg"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray_div_dark" />
+            </RelativeLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

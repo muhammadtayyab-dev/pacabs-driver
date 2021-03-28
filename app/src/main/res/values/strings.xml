@@ -26,4 +26,17 @@
     <string name="number_only_digits">0123456789</string>
     <string name="enter_mobile_number">Enter mobile number</string>
     <string name="login_with_nmobile_number"><b>Login</b> with \nmobile number</string>
+    <string name="you_are_offline">You are offline !</string>
+    <string name="go_online_to_start_accepting_jobs">Go online to start accepting jobs</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="home">Home</string>
+    <string name="bookings">Bookings</string>
+    <string name="wallet">Wallet</string>
+    <string name="profile">Profile</string>
+    <string name="hundred_">₹ 100</string>
+    <string name="top_up">Top Up</string>
+    <string name="general_information">General Information</string>
+    <string name="notifications">Notifications</string>
+
 </resources>
