@@ -13,8 +13,9 @@ import java.util.regex.Pattern
 class Utility {
 
     companion object {
+        val LOCATION_PERMISSIONS_CODE=121
         val HEADER_TYPE=0
-        val SERVICE_PROVIDER_TYPE: Int = 11
+        val MY_JOBS: Int = 11
         val DRIVER_TYPE: Int = 12
         val PROVIDER_CAB_TIME_IN_KM_RECYCLER_TYPE: Int = 1
         val PROVIDER_CAB_CAR_TYPE_RECYCLER_TYPE: Int = 2

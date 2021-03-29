@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.fragments.splashIntroScreensFrags.EnableLocationFragment
 import com.techlogix.pacabs_driver.fragments.splashIntroScreensFrags.IntroMainFragment
+import com.techlogix.pacaps.utility.Utility
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : BaseActivity() {
@@ -25,7 +26,7 @@ class SplashActivity : BaseActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1122) {
+        if (requestCode == Utility.LOCATION_PERMISSIONS_CODE) {
             val fragment =
                 (supportFragmentManager.fragments[0] as NavHostFragment).childFragmentManager.fragments.get(
                     0

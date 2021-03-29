@@ -11,6 +11,7 @@ import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.activities.BaseActivity
 import com.techlogix.pacabs_driver.activities.RegistrationLoginActivity
 import com.techlogix.pacabs_driver.utility.PermissionUtils
+import com.techlogix.pacaps.utility.Utility
 import kotlinx.android.synthetic.main.fragment_enable_location.*
 
 class EnableLocationFragment : Fragment() {
@@ -32,7 +33,10 @@ class EnableLocationFragment : Fragment() {
         baseActivity = requireActivity() as BaseActivity
         useMyLocBtn.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                PermissionUtils.requestLocationPermissions(requireActivity(), 1122)
+                PermissionUtils.requestLocationPermissions(
+                    requireActivity(),
+                    Utility.LOCATION_PERMISSIONS_CODE
+                )
             } else {
                 baseActivity?.openActivity(RegistrationLoginActivity::class.java, null)
             }
@@ -49,7 +53,7 @@ class EnableLocationFragment : Fragment() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1122) {
+        if (requestCode == Utility.LOCATION_PERMISSIONS_CODE) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 baseActivity?.openActivity(RegistrationLoginActivity::class.java, null)
                 baseActivity?.finish()

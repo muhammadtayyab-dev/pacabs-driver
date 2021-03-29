@@ -38,5 +38,10 @@
     <string name="top_up">Top Up</string>
     <string name="general_information">General Information</string>
     <string name="notifications">Notifications</string>
+    <string name="manageVehicles">Manage Cabs</string>
+    <string name="dummu_loc">Sai nilayam, East Parsanth Nager, Hydrabad, Telangana 5000636, India</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+
 
 </resources>

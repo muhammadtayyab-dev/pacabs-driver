@@ -290,6 +290,38 @@
                     android:background="@color/gray_div_dark" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/manageVehicles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLayout">
+
+                <ImageView
+                    android:id="@+id/manageVehiclesInmg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/manage_vehicales_bg" />
+
+                <TextView
+                    style="@style/titleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/manageVehiclesInmg"
+                    android:text="@string/manageVehicles" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/manageVehiclesInmg"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray_div_dark" />
+            </RelativeLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

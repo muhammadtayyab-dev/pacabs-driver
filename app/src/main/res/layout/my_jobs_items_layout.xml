@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/_10sdp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_background_corner">
+
+    <RelativeLayout
+        android:id="@+id/userNameAndImgRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_div2"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.techlogix.pacabs_driver.customViews.CircleImageView
+            android:id="@+id/userImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user"
+            app:civ_border_color="@color/colorBlackLight"
+            app:civ_border_width="1dp" />
+
+        <TextView
+            android:id="@+id/userNameTv"
+            style="@style/titleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/userImg"
+            android:text="hello World" />
+
+        <TextView
+            android:id="@+id/distanceTv"
+            style="@style/titleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="5Km" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/descTv"
+        style="@style/titleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/dummu_loc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameAndImgRl" />
+
+    <TextView
+        android:id="@+id/cancelTv"
+        style="@style/titleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/cancel"
+        android:textColor="@color/colorBlueDark"
+        app:layout_constraintBottom_toBottomOf="@+id/acceptBtn"
+        app:layout_constraintEnd_toStartOf="@+id/acceptBtn" />
+
+
+    <Button
+        android:id="@+id/acceptBtn"
+        style="@style/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/button_selector_yellow"
+        android:text="@string/accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descTv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

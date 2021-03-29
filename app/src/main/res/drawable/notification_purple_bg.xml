@@ -3,10 +3,7 @@
 
     <item android:drawable="@drawable/bg_circle_purple" />
     <item
-        android:bottom="5dp"
         android:drawable="@drawable/ic_notifications_white"
-        android:end="5dp"
-        android:start="5dp"
-        android:top="5dp" />
+        android:gravity="center" />
 
 </layer-list>
