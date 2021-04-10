@@ -1,6 +1,7 @@
 package com.techlogix.pacabs_driver.activities
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.Gravity
 import android.view.View
 import androidx.core.view.get
@@ -106,12 +107,12 @@ class DashboardActivity<T> : BaseActivity(), View.OnClickListener, GenericCallba
         val fragViewAdapter = context?.let {
             FragmentsViewPagerAdapter(it, supportFragmentManager, fragsList, fragsTitleList)
         }
-        disableSwipeViewPager?.adapter=fragViewAdapter
+        disableSwipeViewPager?.adapter = fragViewAdapter
         tabss.getTabAt(0)?.setIcon(R.drawable.home_selector)
         tabss.getTabAt(1)?.setIcon(R.drawable.bookings_selector)
         tabss.getTabAt(2)?.setIcon(R.drawable.wallet_selector)
         tabss.getTabAt(3)?.setIcon(R.drawable.user_selector)
-        disableSwipeViewPager?.offscreenPageLimit=4
+        disableSwipeViewPager?.offscreenPageLimit = 4
     }
 
     override fun onBackPressed() {
@@ -129,6 +130,16 @@ class DashboardActivity<T> : BaseActivity(), View.OnClickListener, GenericCallba
     }
 
     override fun GenericCallType(T: Any) {
-        TODO("Not yet implemented")
+        drawerLayout?.closeDrawer(Gravity.LEFT)
+        Handler().postDelayed(Runnable {
+            if (T is Int) {
+                if (T == 0) {
+                    disableSwipeViewPager.setCurrentItem(1,true)
+                }else if(T==1){
+                    disableSwipeViewPager.setCurrentItem(2,true)
+                }
+            }
+        },1500)
+
     }
 }

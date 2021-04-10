@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ import com.techlogix.pacabs_driver.customViews.CircleImageView
 import com.techlogix.pacabs_driver.models.NavMenuModel
 import com.techlogix.pacabs_driver.models.bookingsModels.MyBookingsResponseModel
 import com.techlogix.pacabs_driver.models.jobsModels.MyJobsModel
+import com.techlogix.pacabs_driver.models.walletsModel.MyWalletResponseModel
 import com.techlogix.pacaps.utility.GenericCallback
 import com.techlogix.pacaps.utility.Utility
 
@@ -35,6 +37,10 @@ class ActivityGenericAdapte<T>(
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.bookings_items_layout, parent, false)
             return MyBookingsHolder(view)
+        } else if (type == Utility.MY_WALLET) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.my_wallet_items_layout, parent, false)
+            return MyWalletHolder(view)
         } else {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.my_jobs_items_layout, parent, false)
@@ -82,6 +88,11 @@ class ActivityGenericAdapte<T>(
             holder.bookingHrTv.text = obj.bookingHrs
             holder.bookingDateTv.text = obj.bookingDate
             holder.estRupessTv.text = obj.bookingsEST
+        } else if (holder is MyWalletHolder && obj is MyWalletResponseModel) {
+            holder.walletUserTv.text = obj.userWalletName
+            holder.dateTv.text = obj.walletDate
+            holder.walletRsTv.text = obj.walletPrice
+
         }
     }
 
@@ -121,6 +132,14 @@ class ActivityGenericAdapte<T>(
         val bookingHrTv = itemView.findViewById(R.id.bookingHrTv) as TextView
         val bookingDateTv = itemView.findViewById(R.id.bookingDateTv) as TextView
         val estRupessTv = itemView.findViewById(R.id.estRupessTv) as TextView
+    }
+
+    class MyWalletHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val rootLayout = itemView.findViewById(R.id.rootLayout) as CardView
+        val walletUserTv = itemView.findViewById(R.id.walletUserTv) as TextView
+        val dateTv = itemView.findViewById(R.id.dateTv) as TextView
+        val walletRsTv = itemView.findViewById(R.id.walletRsTv) as TextView
+
     }
 
 }

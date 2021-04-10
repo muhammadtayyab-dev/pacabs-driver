@@ -24,6 +24,7 @@ class Utility {
         val OFFERS_DISCOUNT: Int = 5
         val MY_FAVORITES: Int = 6
         val MY_BOOKING: Int = 7
+        val MY_WALLET: Int = 8
         fun bitmapDescriptorFromVector(context: Context,
                                        @DrawableRes vectorDrawableResourceId: Int): BitmapDescriptor? {
             val background = ContextCompat.getDrawable(context, vectorDrawableResourceId)

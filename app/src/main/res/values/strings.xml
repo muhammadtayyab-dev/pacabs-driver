@@ -48,6 +48,9 @@
     <string name="completed">Completed</string>
     <string name="upcoming">UpComing</string>
     <string name="cancelled">Cancelled</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="cash_balance">Cash Balance</string>
+    <string name="dummy_date">02/8/2021</string>
 
 
 </resources>

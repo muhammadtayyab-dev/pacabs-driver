@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.activities.BaseActivity
+import com.techlogix.pacabs_driver.activities.DashboardActivity
 import com.techlogix.pacabs_driver.models.GenericResponseModel
 import com.techlogix.pacabs_driver.network.APIManager
 import kotlinx.android.synthetic.main.fragment_o_t_p.*
@@ -34,17 +35,19 @@ class OTPFragment<T> : Fragment(), APIManager.CallbackGenric<T> {
 //            firstPinView.setText((APIManager.instance.responseModel.result as CreateUserResponseModel).oTP)
 //            userNumberTv.setText((APIManager.instance.responseModel.result as CreateUserResponseModel).mobile)
 //        }
-//        continoueBtn.setOnClickListener {
-//            if (validateOtp()) {
-//                val response = APIManager.instance.responseModel.result
-//                if (response != null && response is CreateUserResponseModel) {
-//                    APIManager.getInstance()
-//                        .verifyOtp(VerifyUserOtp(response.mobile, firstPinView.text.toString()),
-//                            this)
-//                }
-//            }
-//
-//        }
+        continoueBtn.setOnClickListener {
+            if (validateOtp()) {
+                /*     val response = APIManager.instance.responseModel.result
+                     if (response != null && response is CreateUserResponseModel) {
+                         APIManager.getInstance()
+                             .verifyOtp(VerifyUserOtp(response.mobile, firstPinView.text.toString()),
+                                 this)
+                     }*/
+                baseActivity?.openActivity(DashboardActivity::class.java, null)
+                baseActivity?.finish()
+            }
+
+        }
 
     }
 

@@ -43,6 +43,7 @@ class EnableLocationFragment : Fragment() {
         }
         skipForNow.setOnClickListener {
             baseActivity?.openActivity(RegistrationLoginActivity::class.java, null)
+            baseActivity?.finish()
 
         }
     }
