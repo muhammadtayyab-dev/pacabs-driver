@@ -3,16 +3,14 @@ package com.techlogix.pacabs_driver.fragments.dashboardFragments
 import android.annotation.SuppressLint
 import android.location.Location
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationListener
@@ -25,23 +23,25 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.littlemango.stacklayoutmanager.StackLayout
 import com.littlemango.stacklayoutmanager.StackLayoutManager
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.adapters.ActivityGenericAdapte
 import com.techlogix.pacabs_driver.models.jobsModels.MyJobsModel
 import com.techlogix.pacabs_driver.utility.PermissionUtils
+import com.techlogix.pacaps.utility.GenericCallback
 import com.techlogix.pacaps.utility.Utility
-import kotlinx.android.synthetic.main.fragment_online.*
 import java.lang.Exception
+import java.util.ArrayList
 
-class OnlineFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
-    GoogleApiClient.OnConnectionFailedListener, LocationListener {
+class DashboardMainFragment<T> : Fragment(), OnMapReadyCallback,
+    GoogleApiClient.ConnectionCallbacks,
+    GoogleApiClient.OnConnectionFailedListener, LocationListener, GenericCallback<T> {
     var googleMap: GoogleMap? = null
     var mapFragment: SupportMapFragment? = null
     var googleAPIClient: GoogleApiClient? = null
     var mLocationRequest: LocationRequest? = null
     var mCurrentMarker: Marker? = null
+    var jobsRecycler: RecyclerView? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,29 +56,32 @@ class OnlineFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.Connectio
     }
 
     private fun setData() {
-        val stackLayoutManager=StackLayoutManager(StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP)
+        val stackLayoutManager =
+            StackLayoutManager(StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP)
         stackLayoutManager.setPagerMode(true)
         stackLayoutManager.setPagerFlingVelocity(3000)
-        jobsRecycler.layoutManager=stackLayoutManager
+        jobsRecycler?.layoutManager = stackLayoutManager
         val list = arrayListOf<MyJobsModel>()
         list.add(MyJobsModel(R.drawable.ic_user, "Ali", getString(R.string.dummu_loc), "2KM"))
         list.add(MyJobsModel(R.drawable.ic_user, "Raza", getString(R.string.dummu_loc), "5KM"))
         list.add(MyJobsModel(R.drawable.ic_user, "Rehman", getString(R.string.dummu_loc), "1.5KM"))
         list.add(MyJobsModel(R.drawable.ic_user, "Qaim", getString(R.string.dummu_loc), "8KM"))
         list.add(MyJobsModel(R.drawable.ic_user, "Tayyab", getString(R.string.dummu_loc), "7KM"))
-        val jobsAdapter = ActivityGenericAdapte(Utility.MY_JOBS, list)
-        jobsRecycler.adapter = jobsAdapter
+        val jobsAdapter = ActivityGenericAdapte(Utility.MY_JOBS, list as ArrayList<*>, this)
+        jobsRecycler?.adapter = jobsAdapter
 
 
     }
 
 
     private fun initViews(view: View) {
+        jobsRecycler = view.findViewById(R.id.jobsRecycler)
+
 
         if (PermissionUtils.hasLocationPermissionGranted(context)) {
-//            mapFragment =
-//                childFragmentManager.findFragmentById(R.id.usersMaps) as SupportMapFragment;
-//            mapFragment?.getMapAsync(this)
+            mapFragment =
+                childFragmentManager.findFragmentById(R.id.usersMaps) as SupportMapFragment;
+            mapFragment?.getMapAsync(this)
 
             setData()
 
@@ -92,7 +95,7 @@ class OnlineFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.Connectio
     override fun onMapReady(googleMap: GoogleMap?) {
         this.googleMap = googleMap
         googleMap?.isMyLocationEnabled = true
-
+//        this.googleMap?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context,R.raw.dark_google_map))
         val locationButton =
             (mapFragment?.view?.findViewById<View>(Integer.parseInt("1"))?.parent as View).findViewById<ImageView>(
                 Integer.parseInt("2")
@@ -194,6 +197,12 @@ class OnlineFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.Connectio
             }
         } catch (e: Exception) {
             Log.e("exx", e.message + "")
+        }
+    }
+
+    override fun GenericCallType(T: Any) {
+        if(T is MyJobsModel){
+
         }
     }
 

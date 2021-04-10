@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp">
+
+    <View
+        android:id="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_div_dark"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/booking_blue_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/div" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        style="@style/titleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="@string/bookings"
+        app:layout_constraintBottom_toBottomOf="@+id/iconImg"
+        app:layout_constraintStart_toEndOf="@+id/iconImg"
+        app:layout_constraintTop_toTopOf="@+id/iconImg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

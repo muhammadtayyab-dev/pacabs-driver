@@ -42,6 +42,12 @@
     <string name="dummu_loc">Sai nilayam, East Parsanth Nager, Hydrabad, Telangana 5000636, India</string>
     <string name="accept">Accept</string>
     <string name="cancel">Cancel</string>
+    <string name="my_rides">My Rides</string>
+    <string name="support">Supports</string>
+    <string name="my_earminhs">My Earnings</string>
+    <string name="completed">Completed</string>
+    <string name="upcoming">UpComing</string>
+    <string name="cancelled">Cancelled</string>
 
 
 </resources>

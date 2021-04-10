@@ -83,5 +83,10 @@
         <item name="textSize">12sp</item>
     </style>
 
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 
 </resources>
