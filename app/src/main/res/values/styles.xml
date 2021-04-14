@@ -88,5 +88,10 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 
 </resources>

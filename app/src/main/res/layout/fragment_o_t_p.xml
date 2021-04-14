@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="+92 5541211" />
+                android:text="+91 5541211" />
 
             <com.chaos.view.PinView
                 android:id="@+id/firstPinView"

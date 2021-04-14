@@ -59,6 +59,12 @@ class ActivityGenericAdapte<T>(
             holder.userNameTv.text = obj.userName
             holder.distanceTv.text = obj.distance
             holder.descTv.text = obj.rideDesc
+            holder.acceptBtn.setOnClickListener {
+                callback.GenericCallType(obj);
+            }
+            holder.cancelTv.setOnClickListener {
+                callback.GenericCallType(holder.adapterPosition)
+            }
         } else if (holder is MyNavItemsHolder && obj is NavMenuModel) {
             when (obj.isSelected) {
                 true -> holder.rootLayout.setBackgroundColor(
@@ -106,6 +112,8 @@ class ActivityGenericAdapte<T>(
         }
         notifyDataSetChanged()
     }
+
+
 
     class MyJobsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userImg = itemView.findViewById(R.id.userImg) as CircleImageView

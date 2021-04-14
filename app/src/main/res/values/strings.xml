@@ -51,6 +51,13 @@
     <string name="my_wallet">My Wallet</string>
     <string name="cash_balance">Cash Balance</string>
     <string name="dummy_date">02/8/2021</string>
+    <string name="estimation"><u>Estimation</u></string>
+    <string name="fare_estimation">Total estimation fare price including taxes</string>
+    <string name="vehicle_type">Vehicle Type</string>
+    <string name="plan_type">Plan Type</string>
+    <string name="local">Local</string>
+    <string name="hours">Hours</string>
+    <string name="parking_toll_charges">Price may vary base on the trip duration, distance \nThe Parking and toll charges paid by customer</string>
 
 
 </resources>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp"
+    tools:context=".fragments.RidesAndGetRidesFragmenmts.RideInformationFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/passengerRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_div3"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/passengerCv"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:elevation="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/passengerImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/passengerNameTv"
+            style="@style/headlingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/passengerCv"
+            android:text="Alaxender" />
+
+        <TextView
+            android:id="@+id/passenterTravelDistanceTv"
+            style="@style/titleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/passengerCv"
+            android:layout_alignParentEnd="true"
+            android:text="3km" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passengerRl">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/estimationTv"
+                style="@style/headlingStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/estimation"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/totalEstimationTv"
+                style="@style/titleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/fare_estimation"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/estimationTv" />
+
+            <LinearLayout
+                android:id="@+id/tripInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/totalEstimationTv">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/vehicle_type"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/vehicle_type"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/plan_type"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/local"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/hours"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="8Hr"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Kms"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="80Kms"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Price"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="999(INC.GST)"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Extra/Km"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="10/-"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Extra/Hr"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        style="@style/titleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="100/-"
+                        android:textColor="@color/colorBlack" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fareRateTv"
+                style="@style/headlingStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/parking_toll_charges"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tripInfoLayout" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/themedToggleGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:alignItems="center"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fareRateTv">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/phoneToggle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:gravity="center"
+                    app:layout_flexGrow="1"
+                    app:toggle_backgroundColor="@color/gray_div_dark"
+                    app:toggle_icon="@drawable/ic_baseline_local_phone_24"
+                    app:toggle_iconGravity="top|center"
+                    app:toggle_iconPaddingBottom="@dimen/_15sdp"
+                    app:toggle_iconPaddingLeft="@dimen/_15sdp"
+                    app:toggle_iconPaddingRight="@dimen/_15sdp"
+                    app:toggle_selectedBackgroundColor="@color/colorGreenCyan"
+                    app:toggle_selectedTextColor="@android:color/white"
+                    app:toggle_text="Multiple choice"
+                    app:toggle_selectedIcon="@drawable/ic_baseline_local_phone_24"
+                    app:toggle_textGravity="bottom|center"
+                    app:toggle_textPaddingBottom="@dimen/_5sdp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/cancelToggle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:gravity="center"
+                    app:layout_flexGrow="1"
+                    app:toggle_backgroundColor="@color/gray_div_dark"
+                    app:toggle_icon="@drawable/ic_baseline_delete_24"
+                    app:toggle_iconGravity="top|center"
+                    app:toggle_iconPaddingBottom="@dimen/_15sdp"
+                    app:toggle_iconPaddingLeft="@dimen/_15sdp"
+                    app:toggle_iconPaddingRight="@dimen/_15sdp"
+                    app:toggle_selectedIcon="@drawable/ic_baseline_delete_24"
+                    app:toggle_selectedBackgroundColor="@color/colorGreenCyan"
+                    app:toggle_selectedTextColor="@android:color/white"
+                    app:toggle_text="Multiple choice"
+                    app:toggle_textGravity="bottom|center"
+                    app:toggle_textPaddingBottom="@dimen/_5sdp" />
+
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
