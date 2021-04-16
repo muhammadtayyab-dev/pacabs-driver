@@ -58,6 +58,7 @@
     <string name="local">Local</string>
     <string name="hours">Hours</string>
     <string name="parking_toll_charges">Price may vary base on the trip duration, distance \nThe Parking and toll charges paid by customer</string>
+    <string name="enter_otp">Enter OTP</string>
 
 
 </resources>

@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.techlogix.pacabs_driver.R
+import kotlinx.android.synthetic.main.fragment_ride_information.*
 
 class RideInformationFragment : Fragment() {
 
@@ -24,5 +26,8 @@ class RideInformationFragment : Fragment() {
 
     private fun initViews(view: View) {
         requireActivity().setTitle("#12345")
+        gotoPickup.setOnClickListener {
+            findNavController().navigate(RideInformationFragmentDirections.gotoPickupFragment())
+        }
     }
 }

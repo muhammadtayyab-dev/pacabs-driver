@@ -89,7 +89,9 @@
 
             <LinearLayout
                 android:id="@+id/tripInfoLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="@+id/totalEstimationTv"
+                app:layout_constraintEnd_toEndOf="@+id/totalEstimationTv"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
@@ -108,7 +110,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="@string/vehicle_type"
                         android:textColor="@color/colorBlack" />
 
@@ -127,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="@string/vehicle_type"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -145,7 +146,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="@string/plan_type"
                         android:textColor="@color/colorBlack" />
 
@@ -164,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="@string/local"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -182,7 +182,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="@string/hours"
                         android:textColor="@color/colorBlack" />
 
@@ -201,7 +200,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="8Hr"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -219,7 +218,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Kms"
                         android:textColor="@color/colorBlack" />
 
@@ -238,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="80Kms"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -256,7 +254,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Price"
                         android:textColor="@color/colorBlack" />
 
@@ -275,7 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="999(INC.GST)"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -293,7 +290,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Extra/Km"
                         android:textColor="@color/colorBlack" />
 
@@ -310,9 +306,9 @@
                         style="@style/titleStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_gravity="end"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="10/-"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -330,7 +326,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:text="Extra/Hr"
                         android:textColor="@color/colorBlack" />
 
@@ -349,7 +344,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="end"
                         android:text="100/-"
                         android:textColor="@color/colorBlack" />
                 </LinearLayout>
@@ -372,10 +367,10 @@
                 android:id="@+id/themedToggleGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:alignItems="center"
                 android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
+                app:alignItems="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fareRateTv">
@@ -384,42 +379,51 @@
                     android:id="@+id/phoneToggle"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_60sdp"
-                    android:gravity="center"
+                    android:gravity="end"
                     app:layout_flexGrow="1"
                     app:toggle_backgroundColor="@color/gray_div_dark"
                     app:toggle_icon="@drawable/ic_baseline_local_phone_24"
                     app:toggle_iconGravity="top|center"
-                    app:toggle_iconPaddingBottom="@dimen/_15sdp"
-                    app:toggle_iconPaddingLeft="@dimen/_15sdp"
-                    app:toggle_iconPaddingRight="@dimen/_15sdp"
+                    app:toggle_iconPaddingBottom="@dimen/_20sdp"
+                    app:toggle_iconPaddingLeft="@dimen/_20sdp"
+                    app:toggle_iconPaddingRight="@dimen/_20sdp"
                     app:toggle_selectedBackgroundColor="@color/colorGreenCyan"
-                    app:toggle_selectedTextColor="@android:color/white"
-                    app:toggle_text="Multiple choice"
                     app:toggle_selectedIcon="@drawable/ic_baseline_local_phone_24"
+                    app:toggle_selectedTextColor="@android:color/white"
+                    app:toggle_text="Contact"
                     app:toggle_textGravity="bottom|center"
-                    app:toggle_textPaddingBottom="@dimen/_5sdp" />
+                    app:toggle_textPaddingBottom="@dimen/_10sdp" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:id="@+id/cancelToggle"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_60sdp"
-                    android:gravity="center"
                     app:layout_flexGrow="1"
                     app:toggle_backgroundColor="@color/gray_div_dark"
                     app:toggle_icon="@drawable/ic_baseline_delete_24"
                     app:toggle_iconGravity="top|center"
-                    app:toggle_iconPaddingBottom="@dimen/_15sdp"
-                    app:toggle_iconPaddingLeft="@dimen/_15sdp"
-                    app:toggle_iconPaddingRight="@dimen/_15sdp"
-                    app:toggle_selectedIcon="@drawable/ic_baseline_delete_24"
+                    app:toggle_iconPaddingBottom="@dimen/_20sdp"
+                    app:toggle_iconPaddingLeft="@dimen/_20sdp"
+                    app:toggle_iconPaddingRight="@dimen/_20sdp"
                     app:toggle_selectedBackgroundColor="@color/colorGreenCyan"
+                    app:toggle_selectedIcon="@drawable/ic_baseline_delete_24"
                     app:toggle_selectedTextColor="@android:color/white"
-                    app:toggle_text="Multiple choice"
+                    app:toggle_text="Cancel"
                     app:toggle_textGravity="bottom|center"
-                    app:toggle_textPaddingBottom="@dimen/_5sdp" />
-
+                    app:toggle_textPaddingBottom="@dimen/_10sdp" />
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+            <Button
+                android:id="@+id/gotoPickup"
+                style="@style/buttonStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="GO TO PICKUP"
+                android:background="@drawable/button_selector_yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/themedToggleGroup" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

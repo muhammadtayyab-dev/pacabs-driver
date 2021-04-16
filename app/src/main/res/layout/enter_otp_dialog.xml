@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_background_corner">
+
+    <TextView
+        android:id="@+id/otpTv"
+        style="@style/headlingStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/enter_otp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/firstPinView"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:cursorVisible="true"
+        android:fontFamily="@font/quicksand_regular"
+        android:inputType="number"
+        android:itemBackground="@drawable/edittext_white_border_bg"
+        android:padding="@dimen/_5sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cursorColor="@color/colorBlack"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="false"
+        app:itemCount="4"
+        app:itemHeight="48dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="10dp"
+        app:itemWidth="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpTv"
+        app:lineColor="@color/gray_div_dark"
+        app:lineWidth="2dp"
+        app:viewType="rectangle" />
+
+    <Button
+        android:id="@+id/doneBtn"
+        style="@style/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/button_selector_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstPinView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
