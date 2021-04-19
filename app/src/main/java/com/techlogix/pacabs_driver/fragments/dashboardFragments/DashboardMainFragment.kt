@@ -25,6 +25,8 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.littlemango.stacklayoutmanager.StackLayoutManager
 import com.techlogix.pacabs_driver.R
+import com.techlogix.pacabs_driver.activities.BaseActivity
+import com.techlogix.pacabs_driver.activities.RidesAndGetRidesActivty
 import com.techlogix.pacabs_driver.adapters.ActivityGenericAdapte
 import com.techlogix.pacabs_driver.models.jobsModels.MyJobsModel
 import com.techlogix.pacabs_driver.utility.PermissionUtils
@@ -42,6 +44,7 @@ class DashboardMainFragment<T> : Fragment(), OnMapReadyCallback,
     var mLocationRequest: LocationRequest? = null
     var mCurrentMarker: Marker? = null
     var jobsRecycler: RecyclerView? = null
+    var baseActivity:BaseActivity?=null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +59,7 @@ class DashboardMainFragment<T> : Fragment(), OnMapReadyCallback,
     }
 
     private fun setData() {
+        baseActivity=requireActivity() as BaseActivity
         val stackLayoutManager =
             StackLayoutManager(StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP)
         stackLayoutManager.setPagerMode(true)
@@ -202,7 +206,7 @@ class DashboardMainFragment<T> : Fragment(), OnMapReadyCallback,
 
     override fun GenericCallType(T: Any) {
         if(T is MyJobsModel){
-
+            baseActivity?.openActivity(RidesAndGetRidesActivty::class.java,null)
         }
     }
 

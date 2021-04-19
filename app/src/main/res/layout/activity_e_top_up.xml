@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ETopUpActivity">
+
+    <ImageView
+        android:id="@+id/backArrowImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_navigation_black" />
+
+    <TextView
+        android:id="@+id/etopUpTv"
+        style="@style/headlingStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="E TopUp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/backArrowImg"
+        app:layout_constraintTop_toBottomOf="@+id/backArrowImg" />
+
+    <LinearLayout
+        android:id="@+id/topupsLayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/payNowBtn"
+        app:layout_constraintTop_toBottomOf="@+id/etopUpTv">
+
+        <Button
+            android:id="@+id/fiveHunBtn"
+            style="@style/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/button_selector_yellow"
+            android:text="@string/hundred_f"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paymentTv" />
+
+        <Button
+            android:id="@+id/thousBtn"
+            style="@style/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/button_selector_yellow"
+            android:text="@string/hundred_f"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fiveHunBtn" />
+
+        <Button
+            android:id="@+id/fifteenHunBtn"
+            style="@style/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/button_selector_yellow"
+            android:text="@string/hundred_15k"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thousBtn" />
+
+        <Button
+            android:id="@+id/twoThousndBtn"
+            style="@style/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/button_selector_yellow"
+            android:text="@string/hundred_f"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fifteenHunBtn" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/payNowBtn"
+        android:layout_width="match_parent"
+        style="@style/buttonStyle"
+        android:background="@drawable/button_selector_yellow"
+        android:layout_margin="@dimen/_20sdp"
+        android:text="Pay Now"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

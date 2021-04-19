@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/edittxt_background"
+    android:elevation="@dimen/_5sdp"
+    android:padding="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/cabType"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_36sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_suv_car"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cabNameTv"
+        style="@style/headlingStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SUV"
+        app:layout_constraintEnd_toEndOf="@+id/cabType"
+        app:layout_constraintStart_toStartOf="@+id/cabType"
+        app:layout_constraintTop_toBottomOf="@+id/cabType" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toEndOf="@+id/cabType"
+        app:layout_constraintTop_toTopOf="@+id/cabType">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:gravity="center_vertical"
+                style="@style/headlingStyle"
+                android:text="Veh No:"/>
+
+            <TextView
+                android:id="@+id/vehicalNumberTv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                style="@style/headlingStyle"
+                android:text="KAS56 BAd767"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:paddingStart="@dimen/_5sdp"
+                android:layout_weight="1.5"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:background="@drawable/bg_black_rectange"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_background_corner"
+                android:layout_height="match_parent">
+              <Spinner
+                  android:id="@+id/onOffSpinner"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                style="@style/headlingStyle"
+                android:text="Name:"/>
+
+            <RelativeLayout
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_black_rectange"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/cabRunnerNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_toStartOf="@+id/penImg1"
+                    android:layout_height="match_parent"
+                    style="@style/headlingStyle"
+                    android:text="1234567884545"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/_5sdp" />
+                <ImageView
+                    android:id="@+id/penImg1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_pen"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+           <TextView
+               android:id="@+id/cabRunnerOnlineTv"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               style="@style/titleStyle"
+               android:textColor="@color/colorBlack"
+               android:text="OFF"
+               android:gravity="center"
+               android:background="@drawable/dotted_white_bg"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                style="@style/headlingStyle"
+                android:text="Num:"/>
+
+            <RelativeLayout
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_black_rectange"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/canRunnerNumberTv"
+                    android:layout_width="match_parent"
+                    android:layout_toStartOf="@+id/penImg"
+                    android:layout_height="match_parent"
+                    style="@style/headlingStyle"
+                    android:text="1234567884545"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/_5sdp" />
+                <ImageView
+                    android:id="@+id/penImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_pen"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/cabRunnerOnHireTv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/titleStyle"
+                android:textColor="@color/colorBlack"
+                android:text="On Hire"
+                android:gravity="center"
+                android:background="@drawable/dotted_white_bg"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

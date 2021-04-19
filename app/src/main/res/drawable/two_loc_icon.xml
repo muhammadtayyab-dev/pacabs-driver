@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:gravity="top|center_horizontal">
+        <shape android:shape="oval">
+            <solid android:color="@color/greenColor" />
+            <size
+                android:width="10dp"
+                android:height="10dp" />
+        </shape>
+    </item>
+
+    <item
+        android:bottom="@dimen/_12sdp"
+        android:drawable="@drawable/ic_dotted_barline"
+        android:gravity="center"
+        android:top="@dimen/_12sdp" />
+
+    <item android:gravity="bottom|center_horizontal">
+        <shape android:shape="oval">
+            <solid android:color="@color/colorMehron" />
+            <size
+                android:width="10dp"
+                android:height="10dp" />
+        </shape>
+    </item>
+
+</layer-list>

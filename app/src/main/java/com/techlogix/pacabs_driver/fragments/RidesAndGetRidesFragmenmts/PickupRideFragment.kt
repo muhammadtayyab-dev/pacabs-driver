@@ -20,7 +20,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import com.techlogix.pacabs_driver.R
-import com.techlogix.pacabs_driver.dialogs.CustomerInformaitonBottomSheetDialogFragment
+import com.techlogix.pacabs_driver.dialogs.EndRideBottomSheetDialogFragment
 import com.techlogix.pacabs_driver.dialogs.EnterOTPDialog
 import com.techlogix.pacabs_driver.utility.PermissionUtils
 import com.techlogix.pacaps.dialogs.AlertDialogCallback
@@ -29,7 +29,8 @@ import kotlinx.android.synthetic.main.pickup_information_bottomsheet_layout.*
 
 class PickupRideFragment : Fragment(), OnMapReadyCallback,
     GoogleApiClient.ConnectionCallbacks,
-    GoogleApiClient.OnConnectionFailedListener, LocationListener,View.OnClickListener,GoogleMap.SnapshotReadyCallback {
+    GoogleApiClient.OnConnectionFailedListener, LocationListener, View.OnClickListener,
+    GoogleMap.SnapshotReadyCallback {
     var googleMap: GoogleMap? = null
     var mapFragment: SupportMapFragment? = null
     var googleAPIClient: GoogleApiClient? = null
@@ -61,9 +62,6 @@ class PickupRideFragment : Fragment(), OnMapReadyCallback,
         } else {
             PermissionUtils.requestLocationPermissions(activity, Utility.LOCATION_PERMISSIONS_CODE)
         }
-
-//        val customerInfo=CustomerInformaitonBottomSheetDialogFragment(requireContext())
-//        customerInfo.show(childFragmentManager,"")
     }
 
     @SuppressLint("MissingPermission")
@@ -135,9 +133,17 @@ class PickupRideFragment : Fragment(), OnMapReadyCallback,
     }
 
     override fun onClick(view: View?) {
-        if(view?.id ==R.id.startRideBtn){
-            EnterOTPDialog(requireContext(),object :AlertDialogCallback{
+        if (view?.id == R.id.startRideBtn) {
+            EnterOTPDialog(requireContext(), object : AlertDialogCallback {
                 override fun onDissmiss() {
+
+                    EndRideBottomSheetDialogFragment(requireContext(),
+                        object : AlertDialogCallback {
+                            override fun onDissmiss() {
+                                requireActivity().finish()
+                            }
+                        })
+                        .show(childFragmentManager, "")
                 }
             }).show()
         }

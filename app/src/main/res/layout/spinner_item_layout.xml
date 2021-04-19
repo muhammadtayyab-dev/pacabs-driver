@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:filterTouchesWhenObscured="true">
+
+    <TextView
+        android:id="@+id/spinner_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_35sdp"
+        android:gravity="center_vertical"
+        style="@style/titleStyle"
+        android:textColor="@color/colorBlack"
+        android:paddingStart="@dimen/_10sdp"
+        android:text="dadasd" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/spinner_item_tv"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="@color/gray_div_dark" />
+
+</RelativeLayout>

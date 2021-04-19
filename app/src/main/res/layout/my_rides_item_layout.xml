@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_5sdp"
+    app:cardElevation="@dimen/_5sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/timeDateTv"
+            style="@style/headlingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:text="@string/dummy_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/paymentTv"
+            style="@style/titleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="@string/hundred_"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/timeDateTv" />
+
+        <TextView
+            android:id="@+id/rideStatusTv"
+            style="@style/titleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="@string/cancelled"
+            android:textColor="@color/colorMehron"
+            app:layout_constraintStart_toStartOf="@+id/timeDateTv"
+            app:layout_constraintTop_toBottomOf="@+id/timeDateTv" />
+
+        <TextView
+            android:id="@+id/paymentTypeTv"
+            style="@style/titleStyle"
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cash"
+            app:layout_constraintEnd_toEndOf="@+id/paymentTv"
+            app:layout_constraintTop_toBottomOf="@+id/paymentTv" />
+
+        <View
+            android:id="@+id/div"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/gray_div_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paymentTypeTv" />
+
+        <ImageView
+            android:id="@+id/locImg"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/two_loc_icon"
+            android:text="@string/dummu_loc"
+            app:layout_constraintBottom_toBottomOf="@+id/endAddressTv"
+            app:layout_constraintStart_toStartOf="@+id/timeDateTv"
+            app:layout_constraintTop_toBottomOf="@+id/div" />
+
+        <TextView
+            android:id="@+id/startAddressTv"
+            style="@style/titleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/dummu_loc"
+            app:layout_constraintEnd_toEndOf="@+id/paymentTv"
+            app:layout_constraintStart_toEndOf="@+id/locImg"
+            app:layout_constraintTop_toBottomOf="@+id/div" />
+
+        <TextView
+            android:id="@+id/endAddressTv"
+            style="@style/titleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:text="@string/dummu_loc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/paymentTv"
+            app:layout_constraintStart_toStartOf="@+id/startAddressTv"
+            app:layout_constraintTop_toBottomOf="@+id/startAddressTv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -6,7 +6,7 @@ import android.view.MenuItem
 import com.techlogix.pacabs_driver.R
 import kotlinx.android.synthetic.main.activity_rides_and_get_rides_activty.*
 
-class RidesAndGetRidesActivty : AppCompatActivity() {
+class RidesAndGetRidesActivty : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rides_and_get_rides_activty)

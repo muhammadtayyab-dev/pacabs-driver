@@ -35,6 +35,10 @@
     <string name="wallet">Wallet</string>
     <string name="profile">Profile</string>
     <string name="hundred_">₹ 100</string>
+    <string name="hundred_f">₹ 500</string>
+    <string name="hundred_1k">₹ 1000</string>
+    <string name="hundred_15k">₹ 1500</string>
+    <string name="hundred_2k">₹ 2000</string>
     <string name="top_up">Top Up</string>
     <string name="general_information">General Information</string>
     <string name="notifications">Notifications</string>
@@ -59,6 +63,24 @@
     <string name="hours">Hours</string>
     <string name="parking_toll_charges">Price may vary base on the trip duration, distance \nThe Parking and toll charges paid by customer</string>
     <string name="enter_otp">Enter OTP</string>
+    <string name="est">EST</string>
+    <string name="distance">Distance</string>
+    <string name="fare">Fare</string>
+    <string name="end_ride">End Ride</string>
+    <string name="detaiks">Bill Details</string>
+    <string name="base_fare">Base Fare</string>
+    <string name="extra_km">Extra Km</string>
+    <string name="extra_hrs">Extra Hrs</string>
+    <string name="commision">Commission</string>
+    <string name="coupon_discount">Coupon/Discount</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="payment">Payment</string>
+    <string name="manage_cabs">Manage Cabs</string>
+    <string name="cash">Cash</string>
+    <array name="onOffArray">
+        <item>ON</item>
+        <item>OFF</item>
+    </array>
 
 
 </resources>

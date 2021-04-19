@@ -42,31 +42,26 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="22sp" />
 
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp">
-
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/driverRb"
+                        android:layout_marginTop="@dimen/_10sdp"
                         style="@style/headlingStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorBlack"
                         android:text="@string/driver" />
 
-                    <RadioButton
+                    <CheckBox
                         style="@style/headlingStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/single_cab_owner" />
 
-                    <RadioButton
+                    <CheckBox
                         style="@style/headlingStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Multi Cab Owner" />
-                </RadioGroup>
 
                 <View
                     android:layout_width="match_parent"

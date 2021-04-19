@@ -137,6 +137,12 @@ class DashboardActivity<T> : BaseActivity(), View.OnClickListener, GenericCallba
                     disableSwipeViewPager.setCurrentItem(1,true)
                 }else if(T==1){
                     disableSwipeViewPager.setCurrentItem(2,true)
+                }else if(T ==2){
+                    openActivity(ETopUpActivity::class.java,null)
+                }else if(T==3){
+                    openActivity(ManageCabsActivity::class.java,null)
+                }else if(T==4){
+                    openActivity(MyRidesActivity::class.java,null)
                 }
             }
         },1500)
