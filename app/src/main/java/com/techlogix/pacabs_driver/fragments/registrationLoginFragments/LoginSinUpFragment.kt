@@ -36,16 +36,19 @@ class LoginSinUpFragment<T> : Fragment() {
 
     private fun initViews(view: View) {
         baseActivity = activity as BaseActivity?
-//        for (i in 0..registrationTabLayout.tabCount) {
-//            val textView =
-//                LayoutInflater.from(context).inflate(R.layout.custom_tv, null) as TextView
-//            val typeFace = Typeface.createFromAsset(context?.assets, "fonts/quicksand_regular.otf")
-//            textView.setTypeface(typeFace)
-//            registrationTabLayout.getTabAt(i)?.setCustomView(textView)
-//        }
+
+/*
+        for (i in 0..registrationTabLayout.tabCount) {
+            val textView =
+                LayoutInflater.from(context).inflate(R.layout.custom_tv, null) as TextView
+            val typeFace = Typeface.createFromAsset(context?.assets, "fonts/quicksand_regular.otf")
+            textView.setTypeface(typeFace)
+            registrationTabLayout.getTabAt(i)?.setCustomView(textView)
+        }
+*/
+
         registrationTabLayout.setupWithViewPager(registrationViewPager)
         setupViewpage(registrationViewPager)
-
     }
 
     private fun setupViewpage(registrationViewPager: ViewPager?) {
@@ -54,7 +57,7 @@ class LoginSinUpFragment<T> : Fragment() {
         fragList.add(SignupFragment<T>())
         fragList.add(LoginFragment<T>())
         context?.resources?.getString(R.string.signup)?.let { fragTitleList.add(it) }
-        context?.resources?.getString(R.string.login)?.let { fragTitleList.add(it) }
+        context?.resources?.getString(R.string.login)?.let  { fragTitleList.add(it) }
 
         val pagerAdapter = context?.let {
             FragmentsViewPagerAdapter(it, childFragmentManager, fragList, fragTitleList)

@@ -3,52 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ridesInformationNav"
-    app:startDestination="@id/showAllRidesFragment"
+    app:startDestination="@id/pickupFragment"
     tools:ignore="UnusedNavigation">
 
+    <!--
+        <fragment
+            android:id="@+id/showAllRidesFragment"
+            android:name="com.techlogix.hirecabs_driver.fragments.RidesAndGetRidesFragmenmts.ShowAllRidesFragment"
+            android:label="ShowAllRidesFragment"
+            tools:layout="@layout/fragment_show_all_rides">
 
-    <!--    <fragment-->
-    <!--        android:id="@+id/offlineFragment"-->
-    <!--        android:name="com.techlogix.pacabs_driver.fragments.dashboardFragments.OfflineFragment"-->
-    <!--        android:label="@string/offline"-->
-    <!--        tools:layout="@layout/fragment_offline">-->
+                    <action
+                        android:id="@+id/gotoShowInformationFragment"
+                        app:destination="@id/rideInformationFragment"
+                        app:enterAnim="@anim/left_to_right"
+                        app:popEnterAnim="@anim/right_to_left"
+                        app:popUpToInclusive="true"/>
+        </fragment>
 
+        <fragment android:id="@+id/rideInformationFragment"
+            android:name="com.techlogix.hirecabs_driver.fragments.RidesAndGetRidesFragmenmts.RideInformationFragment"
+            android:label="Ride Information"
+            tools:layout="@layout/fragment_ride_information">
 
-
-    <!--    </fragment>-->
-
+            <action
+                android:id="@+id/gotoPickupFragment"
+                app:destination="@id/pickupFragment"
+                app:enterAnim="@anim/left_to_right"
+                app:popEnterAnim="@anim/right_to_left"
+                app:popUpToInclusive="true"/>
+        </fragment>
+    -->
 
     <fragment
-        android:id="@+id/showAllRidesFragment"
-        android:name="com.techlogix.pacabs_driver.fragments.RidesAndGetRidesFragmenmts.ShowAllRidesFragment"
-        android:label="ShowAllRidesFragment"
-        tools:layout="@layout/fragment_show_all_rides">
-
-                <action
-                    android:id="@+id/gotoShowInformationFragment"
-                    app:destination="@id/rideInformationFragment"
-                    app:enterAnim="@anim/left_to_right"
-                    app:popEnterAnim="@anim/right_to_left"
-                    app:popUpToInclusive="true"/>
-    </fragment>
-
-    <fragment android:id="@+id/rideInformationFragment"
-        android:name="com.techlogix.pacabs_driver.fragments.RidesAndGetRidesFragmenmts.RideInformationFragment"
-        android:label="Ride Information"
-        tools:layout="@layout/fragment_ride_information">
-
+        android:id="@+id/pickupFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.RidesAndGetRidesFragmenmts.PickupRideFragment"
+        android:label="pickup"
+        tools:layout="@layout/fragment_pickup_ride">
         <action
-            android:id="@+id/gotoPickupFragment"
-            app:destination="@id/pickupFragment"
+            android:id="@+id/gotoEndRideFragment"
+            app:destination="@id/rideInformationFragment"
             app:enterAnim="@anim/left_to_right"
             app:popEnterAnim="@anim/right_to_left"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
+     </fragment>
+
+    <fragment
+        android:id="@+id/rideInformationFragment"
+        android:name="com.techlogix.pacabs_driver.fragments.RidesAndGetRidesFragmenmts.RideCompletedFragment"
+        android:label="Ride Information"
+        tools:layout="@layout/fragment_ride_completed">
+        <argument
+            android:name="endRideResponse"
+            app:argType="com.techlogix.pacabs_driver.models.jobModels.CompletedRideModel"
+            />
     </fragment>
 
-    <fragment android:id="@+id/pickupFragment"
-        android:name="com.techlogix.pacabs_driver.fragments.RidesAndGetRidesFragmenmts.PickupRideFragment"
-        tools:layout="@layout/fragment_pickup_ride"
-        android:label="pickup">
-
-    </fragment>
 </navigation>

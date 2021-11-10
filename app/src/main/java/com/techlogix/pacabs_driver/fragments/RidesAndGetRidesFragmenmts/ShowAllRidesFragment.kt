@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.adapters.ActivityGenericAdapte
-import com.techlogix.pacabs_driver.models.jobsModels.MyJobsModel
+import com.techlogix.pacabs_driver.models.jobModels.MyJobsModel
 import com.techlogix.pacaps.utility.GenericCallback
 import com.techlogix.pacaps.utility.Utility
 import kotlinx.android.synthetic.main.fragment_show_all_rides.*
@@ -36,7 +36,7 @@ class ShowAllRidesFragment<T> : Fragment(), GenericCallback<T> {
         list.add(MyJobsModel(R.drawable.ic_user, "Rehman", getString(R.string.dummu_loc), "1.5KM"))
         list.add(MyJobsModel(R.drawable.ic_user, "Qaim", getString(R.string.dummu_loc), "8KM"))
         list.add(MyJobsModel(R.drawable.ic_user, "Tayyab", getString(R.string.dummu_loc), "7KM"))
-        val jobsAdapter = ActivityGenericAdapte(Utility.MY_JOBS, list as ArrayList<*>, this)
+        val jobsAdapter = ActivityGenericAdapte(requireContext(),Utility.MY_JOBS, list as ArrayList<*>, this)
         showAllRidesRecyclerView.adapter = jobsAdapter;
     }
 
@@ -44,8 +44,6 @@ class ShowAllRidesFragment<T> : Fragment(), GenericCallback<T> {
         if (T is Int) {
             (showAllRidesRecyclerView.adapter as ActivityGenericAdapte<T>).list.removeAt(T)
             (showAllRidesRecyclerView.adapter as ActivityGenericAdapte<T>).notifyItemRemoved(T)
-        } else if (T is MyJobsModel) {
-        findNavController().navigate(ShowAllRidesFragmentDirections.gotoShowInformationFragment())
         }
     }
 

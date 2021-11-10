@@ -6,5 +6,7 @@ data class MyBookingsResponseModel(
     var bookingId: String,
     var bookingHrs: String,
     var bookingDate: String,
-    var bookingsEST: String
+    var bookingsEST: String,
+    var cancelledBy:String,
+    var cancellationCharges:String
 )

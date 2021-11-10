@@ -4,17 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".fragments.dashboardFragments.BookingsFragment">
 
+    <ImageButton
+        android:id="@+id/refreshBookingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ic_refresh"
+        />
+
+    <TextView
+        android:id="@+id/bookingTitle"
+        style="@style/titleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:text="@string/bookings"
+        android:textColor="@color/colorBlackLight"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/bookingsLv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/bookingTitle">
 
         <LinearLayout
+            android:id="@+id/completedBookingLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -23,10 +50,11 @@
             android:padding="@dimen/_8sdp">
 
             <TextView
+                android:id="@+id/completedBookingCount"
                 style="@style/titleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="145"
+                android:text="0"
                 android:textColor="@color/colorGreenWhatsApp" />
 
             <TextView
@@ -38,13 +66,14 @@
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="5dp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@color/gray_div_dark" />
+                android:background="@drawable/tab_selector" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/upcomingBookingLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -53,10 +82,11 @@
             android:padding="@dimen/_8sdp">
 
             <TextView
+                android:id="@+id/upComingBookingCount"
                 style="@style/titleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="45"
+                android:text="0"
                 android:textColor="@color/colorBlueDark" />
 
             <TextView
@@ -68,13 +98,14 @@
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="5dp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@color/gray_div_dark" />
+                android:background="@drawable/tab_selector" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cancelledBookingLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -83,10 +114,11 @@
             android:padding="@dimen/_8sdp">
 
             <TextView
+                android:id="@+id/cancelBookingCount"
                 style="@style/titleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="145"
+                android:text="0"
                 android:textColor="@color/colorOrangeDark" />
 
             <TextView
@@ -98,22 +130,41 @@
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="5dp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@color/gray_div_dark" />
+                android:background="@drawable/tab_selector" />
         </LinearLayout>
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bookingsRecyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshBookings"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:paddingBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookingsLv" />
+        app:layout_constraintTop_toBottomOf="@+id/bookingsLv">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bookingsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/quicksand_regular"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:text="@string/no_record"
+        android:textColor="@color/colorBlackLight"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

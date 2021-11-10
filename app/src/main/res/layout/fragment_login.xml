@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,29 +28,96 @@
                 android:layout_height="wrap_content"
                 android:text="@string/login_with_nmobile_number"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp" />
+                android:textSize="28dp" />
 
 
-            <EditText
-                android:id="@+id/numberEd"
-                style="@style/myEditText"
+            <RelativeLayout
+                android:id="@+id/numberRl"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:digits="@string/number_only_digits"
-                android:hint="@string/enter_mobile_number"
-                android:imeOptions="actionDone"
-                android:inputType="numberDecimal"
-                android:maxLength="20" />
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/edittext_white_border_bg">
+
+
+                <EditText
+                    android:id="@+id/numberEd"
+                    style="@style/editTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_toStartOf="@+id/mobileImg"
+                    android:digits="@string/number_only_digits"
+                    android:hint="@string/enter_mobile_number"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="20" />
+
+                <ImageView
+                    android:id="@+id/mobileImg"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:padding="5dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:src="@drawable/ic_cell_phone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/passwordRl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@+id/numberRl"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/edittext_white_border_bg">
+
+
+                <EditText
+                    android:id="@+id/passwordEd"
+                    style="@style/editTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_toStartOf="@+id/keyImg"
+                    android:hint="@string/enter_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLength="8" />
+
+                <ImageView
+                    android:id="@+id/keyImg"
+                    android:padding="5dp"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:src="@drawable/ic_inclined_key"
+                    android:contentDescription="@string/app_name" />
+
+
+            </RelativeLayout>
+            <CheckBox
+                android:id="@+id/show_password_cb"
+                android:text="Show Password"
+                style="@style/titleStyle"
+                android:checked="false"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/loginBtn"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_40sdp"
                 android:background="@drawable/button_selector_black"
-                android:text="Login"
-                android:textColor="@color/colorWhite" />
+                android:text="Next"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_18sdp" />
         </LinearLayout>
     </ScrollView>
 

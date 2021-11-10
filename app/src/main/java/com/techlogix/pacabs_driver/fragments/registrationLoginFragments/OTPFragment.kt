@@ -6,11 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.techlogix.pacabs_driver.PacabDriver
+import com.techlogix.pacabs_driver.PacabDriver.Companion.INSTANCE
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.activities.BaseActivity
 import com.techlogix.pacabs_driver.activities.DashboardActivity
 import com.techlogix.pacabs_driver.models.GenericResponseModel
+import com.techlogix.pacabs_driver.models.createDriverModels.CreateDriverResponseModel
+import com.techlogix.pacabs_driver.models.createDriverModels.VerifyOTPRequestModel
 import com.techlogix.pacabs_driver.network.APIManager
+import com.techlogix.pacabs_driver.utility.SharePrefData
 import kotlinx.android.synthetic.main.fragment_o_t_p.*
 
 class OTPFragment<T> : Fragment(), APIManager.CallbackGenric<T> {
@@ -31,25 +36,21 @@ class OTPFragment<T> : Fragment(), APIManager.CallbackGenric<T> {
 
     private fun initViews(view: View) {
         baseActivity = activity as BaseActivity?
-//        if (APIManager.instance.responseModel != null) {
-//            firstPinView.setText((APIManager.instance.responseModel.result as CreateUserResponseModel).oTP)
-//            userNumberTv.setText((APIManager.instance.responseModel.result as CreateUserResponseModel).mobile)
-//        }
+
         continoueBtn.setOnClickListener {
             if (validateOtp()) {
-                /*     val response = APIManager.instance.responseModel.result
-                     if (response != null && response is CreateUserResponseModel) {
-                         APIManager.getInstance()
-                             .verifyOtp(VerifyUserOtp(response.mobile, firstPinView.text.toString()),
-                                 this)
-                     }*/
-                baseActivity?.openActivity(DashboardActivity::class.java, null)
-                baseActivity?.finish()
+                APIManager.getInstance()
+                    .verifyOtp(
+                        VerifyOTPRequestModel(
+                            firstPinView.text.toString(),
+                            PacabDriver.mobileNumber
+                        ),
+                        this
+                    )
             }
-
         }
-
     }
+
 
     private fun validateOtp(): Boolean {
         if (firstPinView.length() == 0) {
@@ -62,9 +63,19 @@ class OTPFragment<T> : Fragment(), APIManager.CallbackGenric<T> {
     }
 
     override fun onResult(response: GenericResponseModel<T>?, requestCode: Int) {
-        /*    if (response?.result is CreateUserResponseModel) {
-                baseActivity?.openActivity(DashboardActivity::class.java, null)
-            }*/
+        if (response?.result != false && response!!.result != null && response!!.result is CreateDriverResponseModel) {
+            PacabDriver.loginResponse = response.result as CreateDriverResponseModel
+            SharePrefData.getInstance().setLAST_LOGIN_RESPONSE(PacabDriver.loginResponse)
+
+            baseActivity?.openActivity(DashboardActivity::class.java, null)
+            requireActivity().finish()
+        } else {
+            (INSTANCE!!.getBaseActivity() as BaseActivity?)!!.showErrorDialog(
+                "Verify OTP",
+                "Invalid OTP, please enter valid OTP",
+                null
+            )
+        }
     }
 
 }

@@ -259,13 +259,46 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/notificationLayout"
+                android:id="@+id/tripStatisticsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/myBookingLayout">
+
+                <ImageView
+                    android:id="@+id/tripImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/booking_trip_statistics" />
+
+                <TextView
+                    style="@style/titleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/tripImg"
+                    android:text="@string/trip_statistics" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tripImg"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray_div_dark" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/notificationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tripStatisticsLayout">
 
                 <ImageView
                     android:id="@+id/notificationInmg"
@@ -290,7 +323,42 @@
                     android:background="@color/gray_div_dark" />
             </RelativeLayout>
 
+
             <RelativeLayout
+                android:id="@+id/userFeedBackLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLayout">
+
+                <ImageView
+                    android:id="@+id/feedbackInmg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/booking_user_feedback" />
+
+                <TextView
+                    style="@style/titleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/feedbackInmg"
+                    android:text="@string/user_feedback" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/feedbackInmg"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray_div_dark" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/manageVehicles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

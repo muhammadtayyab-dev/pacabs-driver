@@ -3,6 +3,10 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">ec2-13-233-196-58.ap-south-1.compute.amazonaws.com
         </domain>
+<!--
+        <domain includeSubdomains="true">ec2-35-154-230-29.ap-south-1.compute.amazonaws.com
+        </domain>
+-->
     </domain-config>
 
 

@@ -42,6 +42,6 @@ class EndRideBottomSheetDialogFragment(context: Context,var callbacks: AlertDial
 
     override fun dismiss() {
         super.dismiss()
-        callbacks.onDissmiss()
+        callbacks.onDissmiss(true)
     }
 }

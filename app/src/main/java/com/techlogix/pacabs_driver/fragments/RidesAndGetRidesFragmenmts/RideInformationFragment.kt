@@ -26,8 +26,10 @@ class RideInformationFragment : Fragment() {
 
     private fun initViews(view: View) {
         requireActivity().setTitle("#12345")
+/*
         gotoPickup.setOnClickListener {
             findNavController().navigate(RideInformationFragmentDirections.gotoPickupFragment())
         }
+*/
     }
 }

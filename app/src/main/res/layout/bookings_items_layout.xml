@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/_10sdp"
+    android:paddingStart="@dimen/_5sdp"
+    android:paddingEnd="@dimen/_5sdp"
     android:id="@+id/rootLayout"
     android:layout_margin="@dimen/_5sdp"
-    android:background="@color/gray_div3"
+    android:background="@color/colorWhite"
     android:layout_height="wrap_content">
 
     <com.techlogix.pacabs_driver.customViews.CircleImageView
@@ -13,47 +14,42 @@
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_user"
+        android:src="@drawable/user_ring_bg"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/bookingUserNameTv"
+        style="@style/headlingStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        style="@style/headlingStyle"
+        android:layout_marginStart="@dimen/_10sdp"
         android:gravity="center_vertical"
+        android:text="RajVeer"
+        app:layout_constraintBottom_toBottomOf="@+id/bookingUserImg"
         app:layout_constraintEnd_toStartOf="@+id/bookingInfoLL"
         app:layout_constraintStart_toEndOf="@+id/bookingUserImg"
-        app:layout_constraintTop_toTopOf="@+id/bookingUserImg"
-        android:layout_marginStart="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/bookingUserImg"
-        android:text="RajVeer"/>
+        app:layout_constraintTop_toTopOf="@+id/bookingUserImg" />
 
     <LinearLayout
         android:id="@+id/bookingInfoLL"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bookingUserNameTv"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
+        >
 
         <TextView
             android:id="@+id/bookingIDTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/titleStyle"
-            android:text="BookingID : 123456"/>
+            android:text="BookxsingID : 123456"/>
 
-        <TextView
-            android:id="@+id/bookingHrTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/titleStyle"
-            android:text="Hrs : 3Hr"/>
 
         <TextView
             android:id="@+id/bookingDateTv"
@@ -69,6 +65,33 @@
             style="@style/titleStyle"
             android:textColor="@color/colorBlueDark"
             android:text="Est: 1200 Rs"/>
+
+        <!--        by default visibility of cancellation by and cahrges are gone-->
+        <TextView
+            android:id="@+id/cancelledByTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/titleStyle"
+            android:visibility="gone"
+            android:textColor="@color/colorOrangeDark"
+            android:text=""/>
+        <TextView
+            android:id="@+id/cancellationChargesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/titleStyle"
+            android:visibility="gone"
+            android:textColor="@color/colorOrangeDark"
+            android:text=""/>
     </LinearLayout>
+
+    <View
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/bookingInfoLL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/gray_div_4"
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/_10sdp"
+        android:layout_height="1dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

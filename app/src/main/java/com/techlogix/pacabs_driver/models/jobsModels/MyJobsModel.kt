@@ -1,4 +1,4 @@
-package com.techlogix.pacabs_driver.models.jobsModels
+package com.techlogix.pacabs_driver.models.jobModels
 
 data class MyJobsModel(
     var userImage: Int, var userName: String,

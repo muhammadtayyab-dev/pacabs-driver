@@ -1,5 +1,6 @@
 package com.techlogix.pacabs_driver.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,19 +13,23 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacabs_driver.customViews.CircleImageView
+import com.techlogix.pacabs_driver.enumirations.StatusIDEnums
 import com.techlogix.pacabs_driver.models.NavMenuModel
-import com.techlogix.pacabs_driver.models.bookingsModels.MyBookingsResponseModel
-import com.techlogix.pacabs_driver.models.jobsModels.MyJobsModel
-import com.techlogix.pacabs_driver.models.walletsModel.MyWalletResponseModel
+import com.techlogix.pacabs_driver.models.jobModels.JobResponseModel
+import com.techlogix.pacabs_driver.models.myAllBookingModels.AllBookingResponseModel
 import com.techlogix.pacaps.utility.GenericCallback
 import com.techlogix.pacaps.utility.Utility
 
 class ActivityGenericAdapte<T>(
+    var context: Context,
     var type: Int,
     var list: ArrayList<*>,
     var callback: GenericCallback<T>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        this.context = context
+
         if (type == Utility.MY_JOBS) {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.my_jobs_items_layout, parent, false)
@@ -41,6 +46,14 @@ class ActivityGenericAdapte<T>(
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.my_wallet_items_layout, parent, false)
             return MyWalletHolder(view)
+        }   else if (type == Utility.EARNING_FILTERS) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.earning_filter_items_layout, parent, false)
+            return EarningHolder(view)
+        } else if (type == Utility.TRIP_STATICS) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.trip_statics_items_layout, parent, false)
+            return TripStaticsHolder(view)
         } else {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.my_jobs_items_layout, parent, false)
@@ -54,18 +67,19 @@ class ActivityGenericAdapte<T>(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val obj = list.get(holder.adapterPosition)
-        if (holder is MyJobsHolder && obj is MyJobsModel) {
-            holder.userImg.setImageResource(obj.userImage)
-            holder.userNameTv.text = obj.userName
-            holder.distanceTv.text = obj.distance
-            holder.descTv.text = obj.rideDesc
+        if (holder is MyJobsHolder && obj is JobResponseModel) {
+            holder.userImg.setImageResource(R.drawable.ic_user)
+            holder.userNameTv.text = obj.username
+            holder.distanceTv.text = "0.0"
+            holder.bookingTypeValueTv.text = obj.vehiclecategory
+
             holder.acceptBtn.setOnClickListener {
                 callback.GenericCallType(obj);
             }
             holder.cancelTv.setOnClickListener {
                 callback.GenericCallType(holder.adapterPosition)
             }
-        } else if (holder is MyNavItemsHolder && obj is NavMenuModel) {
+        }else if (holder is MyNavItemsHolder && obj is NavMenuModel) {
             when (obj.isSelected) {
                 true -> holder.rootLayout.setBackgroundColor(
                     ContextCompat.getColor(
@@ -87,18 +101,28 @@ class ActivityGenericAdapte<T>(
                 callback.GenericCallType(holder.adapterPosition)
                 setSelection(obj.value)
             }
-        } else if (holder is MyBookingsHolder && obj is MyBookingsResponseModel) {
-            holder.bookingUserImg.setImageResource(obj.userImge)
-            holder.bookingUserNameTv.text = obj.bookingUserName
-            holder.bookingIDTV.text = obj.bookingId
-            holder.bookingHrTv.text = obj.bookingHrs
-            holder.bookingDateTv.text = obj.bookingDate
-            holder.estRupessTv.text = obj.bookingsEST
-        } else if (holder is MyWalletHolder && obj is MyWalletResponseModel) {
-            holder.walletUserTv.text = obj.userWalletName
-            holder.dateTv.text = obj.walletDate
-            holder.walletRsTv.text = obj.walletPrice
+        }  else if (holder is MyBookingsHolder && obj is AllBookingResponseModel) {
 
+            if (obj.bookingStatus == StatusIDEnums.Cancelled.statusID.value.toInt() || obj.bookingStatus == 0)
+            {
+                holder.cancelledByTv.visibility = View.VISIBLE
+                holder.cancellationChargesTv.visibility = View.VISIBLE
+            } else {
+                holder.cancelledByTv.visibility = View.GONE
+                holder.cancellationChargesTv.visibility = View.GONE
+            }
+            holder.bookingUserNameTv.text = obj.customername
+            holder.bookingIDTV.text = obj.tempbookingid.toString()
+            holder.bookingDateTv.text = obj.pickupDate
+            holder.estRupessTv.text =
+                obj.amountToBeCollected.toString() + " " + context.getString(R.string.indian_currency)
+            holder.cancelledByTv.text = obj.cancelledBy
+            holder.cancellationChargesTv.text = obj.cancelledReason.toString()
+
+        }   else if (holder is MyWalletHolder && obj is AllBookingResponseModel) {
+            holder.walletUserTv.text = obj.customername
+            holder.dateTv.text = obj.pickupDate
+            holder.walletRsTv.text = obj.amountToBeCollected.toString() + " " + context.getString(R.string.indian_currency)
         }
     }
 
@@ -114,13 +138,12 @@ class ActivityGenericAdapte<T>(
     }
 
 
-
     class MyJobsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userImg = itemView.findViewById(R.id.userImg) as CircleImageView
         val distanceTv = itemView.findViewById(R.id.distanceTv) as TextView
         val userNameTv = itemView.findViewById(R.id.userNameTv) as TextView
-        val descTv = itemView.findViewById(R.id.descTv) as TextView
-        val cancelTv = itemView.findViewById(R.id.cancelTv) as TextView
+        val bookingTypeValueTv = itemView.findViewById(R.id.bookingTypeValueTv) as TextView
+         val cancelTv = itemView.findViewById(R.id.cancelTv) as TextView
         val acceptBtn = itemView.findViewById(R.id.acceptBtn) as Button
     }
 
@@ -137,9 +160,22 @@ class ActivityGenericAdapte<T>(
         val bookingUserImg = itemView.findViewById(R.id.bookingUserImg) as CircleImageView
         val bookingUserNameTv = itemView.findViewById(R.id.bookingUserNameTv) as TextView
         val bookingIDTV = itemView.findViewById(R.id.bookingIDTV) as TextView
-        val bookingHrTv = itemView.findViewById(R.id.bookingHrTv) as TextView
         val bookingDateTv = itemView.findViewById(R.id.bookingDateTv) as TextView
         val estRupessTv = itemView.findViewById(R.id.estRupessTv) as TextView
+        val cancelledByTv = itemView.findViewById(R.id.cancelledByTv) as TextView
+        val cancellationChargesTv = itemView.findViewById(R.id.cancellationChargesTv) as TextView
+    }
+
+    class TripStaticsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val bookingUserImg = itemView.findViewById(R.id.bookingUserImg) as CircleImageView
+        val typeTV = itemView.findViewById(R.id.typeTV) as TextView
+        val fromTv = itemView.findViewById(R.id.fromTv) as TextView
+        val toTv = itemView.findViewById(R.id.toTv) as TextView
+        val bookingIdTV = itemView.findViewById(R.id.bookingIdTV) as TextView
+        val dateTV = itemView.findViewById(R.id.dateTV) as TextView
+        val estimationTV = itemView.findViewById(R.id.estimationTV) as TextView
+        val cancelledByTv = itemView.findViewById(R.id.cancelledByTv) as TextView
+        val cancellationChargesTv = itemView.findViewById(R.id.cancellationChargesTv) as TextView
     }
 
     class MyWalletHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -149,5 +185,11 @@ class ActivityGenericAdapte<T>(
         val walletRsTv = itemView.findViewById(R.id.walletRsTv) as TextView
 
     }
+     class EarningHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var typeSelection = itemView.findViewById(R.id.typeSelection) as TextView
+        val viewLine = itemView.findViewById(R.id.viewLine) as View
+
+    }
+
 
 }

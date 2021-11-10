@@ -41,7 +41,7 @@ public class ErrorSuccessDialog(context: Context,
 
     override fun dismiss() {
         super.dismiss()
-        altertDialogCallback?.onDissmiss()
+        altertDialogCallback?.onDissmiss(true)
 
     }
 }

@@ -2,9 +2,9 @@ package com.techlogix.pacabs_driver.models
 
 import com.google.gson.annotations.SerializedName
 
-data class GenericResponseModel<T>(@SerializedName("status") val status: Boolean,
-                                   @SerializedName("message") val message: String,
-                                   @SerializedName("result") val result: T,
-                                   @SerializedName("error") val error: String
+data class GenericResponseModel<T>(@SerializedName("status") var status: Boolean,
+                                   @SerializedName("message") var message: String,
+                                   @SerializedName("result") var result: T?,
+                                   @SerializedName("error") var error: String
 
 )

@@ -1,5 +1,5 @@
 package com.techlogix.pacaps.dialogs
 
 interface AlertDialogCallback {
-   public fun onDissmiss()
+   public fun onDissmiss(status:Boolean)
 }

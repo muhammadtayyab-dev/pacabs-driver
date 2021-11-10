@@ -4,7 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorBlack</item>
     </style>
 
     <style name="titleStyle" parent="Widget.AppCompat.TextView">
@@ -55,9 +55,10 @@
 
     <style name="tabTextStyle" parent="Widget.Design.TabLayout">
         <item name="tabBackground">@android:color/transparent</item>
-        <item name="tabIndicatorColor">@color/colorBlack</item>
-        <item name="tabSelectedTextColor">@color/colorBlack</item>
+        <item name="tabIndicatorColor">@color/colorBlackLight</item>
+        <item name="tabSelectedTextColor">@color/colorWhite</item>
         <item name="tabTextColor">@color/colorBlackLight</item>
+        <item name="textSize">@dimen/_20sdp</item>
         <item name="tabTextAppearance">@style/TabText</item>
     </style>
 

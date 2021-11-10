@@ -9,11 +9,18 @@ import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import androidx.navigation.fragment.findNavController
+import com.techlogix.pacabs_driver.PacabDriver
 import com.techlogix.pacabs_driver.R
+import com.techlogix.pacabs_driver.activities.BaseActivity
+import com.techlogix.pacabs_driver.activities.DashboardActivity
+import com.techlogix.pacabs_driver.activities.RegistrationLoginActivity
+import com.techlogix.pacabs_driver.utility.SharePrefData
 import kotlinx.android.synthetic.main.fragment_splash.*
 
 class SplashFragment : Fragment() {
     var isGo = false;
+    var baseActivity: BaseActivity? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,8 +40,8 @@ class SplashFragment : Fragment() {
 
 
     private fun initViews() {
+        baseActivity = requireActivity() as BaseActivity
         setupFadeAnimations(keyImg)
-        setupFadeAnimations(appNameTv)
     }
 
     fun setupFadeAnimations(view: View) {
@@ -43,16 +50,25 @@ class SplashFragment : Fragment() {
         fadeInAnimations.duration = 1000
         fadeInAnimations.startOffset = 800
         view.startAnimation(fadeInAnimations)
+        PacabDriver.loginResponse = SharePrefData.getInstance().lastLoginResponse
 
         fadeInAnimations.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(anim: Animation?) {
 
                 Handler().postDelayed(Runnable {
-                    if (!isGo) {
+
+                    if (!SharePrefData.getInstance().isFirstTime() && !isGo) {
                         findNavController().navigate(SplashFragmentDirections.gotoIntroFragsFragmentActions())
                         isGo = true
+                    } else if (PacabDriver.loginResponse != null) {
+                        baseActivity?.openActivity(DashboardActivity::class.java, null)
+                        requireActivity().finish()
+                    } else {
+                        baseActivity?.openActivity(RegistrationLoginActivity::class.java, null)
+                        requireActivity().finish()
                     }
-                }, 2000)
+
+                }, 1000)
 
             }
 

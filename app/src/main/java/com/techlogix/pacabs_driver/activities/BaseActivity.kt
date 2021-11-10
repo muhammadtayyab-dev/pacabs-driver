@@ -11,6 +11,7 @@ import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import com.techlogix.pacabs_driver.PacabDriver
 import com.techlogix.pacabs_driver.models.GenericResponseModel
+import com.techlogix.pacabs_driver.utility.SharePrefData
 import com.techlogix.pacaps.dialogs.AlertDialogCallback
 import com.techlogix.pacaps.dialogs.ErrorSuccessDialog
 
@@ -24,10 +25,46 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
+
     fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
+
+    fun updateBookingID(bookingId: Long) {
+        PacabDriver.bookingID = bookingId
+//        SharePrefData.getInstance().bookinG_ID = bookingId
+    }
+
+    fun updateStatusID(statusId: Long) {
+        PacabDriver.statusID = statusId
+//        SharePrefData.getInstance().statuS_ID = statusId
+    }
+
+    fun updateFlowID(flowId: Long) {
+        PacabDriver.flowID = flowId
+//        SharePrefData.getInstance().floW_ID = flowId
+    }
+
+    fun resetAllIDs()
+    {
+        PacabDriver.bookingID = 0
+        PacabDriver.flowID = 0
+        PacabDriver.statusID = 0
+        PacabDriver.rideStatus = 0
+
+/*
+        SharePrefData.getInstance().bookinG_ID = 0
+        SharePrefData.getInstance().floW_ID = 0
+        SharePrefData.getInstance().statuS_ID = 0
+*/
+ //        SharePrefData.getInstance().setACCEPTED_JOB_RESPONSE(null)
+    }
+
+
+     
+    
+    
     open fun openActivity(calledActivity: Class<*>?, @Nullable bundle: Bundle?) {
         val myIntent = Intent(this, calledActivity)
         if (bundle != null) myIntent.putExtras(bundle)
@@ -52,15 +89,16 @@ abstract class BaseActivity : AppCompatActivity() {
             finishAffinity()
         }*/
 
+
     fun showErrorDialog(title: String, msg: String, response: GenericResponseModel<*>?) {
 
         ErrorSuccessDialog(this, title, msg, object : AlertDialogCallback {
-            override fun onDissmiss() {
+
+            override fun onDissmiss(flag: Boolean) {
                 onDismiss(response)
             }
         }).show()
     }
-
     fun activityFullScreen(){
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,

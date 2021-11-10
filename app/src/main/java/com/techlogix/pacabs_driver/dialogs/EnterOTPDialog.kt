@@ -7,13 +7,14 @@ import android.view.WindowManager
 import com.techlogix.pacabs_driver.R
 import com.techlogix.pacaps.dialogs.AlertDialogCallback
 import kotlinx.android.synthetic.main.enter_otp_dialog.*
-
-class EnterOTPDialog(context: Context, alertDialogcallbacl: AlertDialogCallback) : Dialog(context) {
+class EnterOTPDialog(context: Context, startotp: String, alertDialogcallbacl: AlertDialogCallback) :
+    Dialog(context) {
     var altertDialogCallback: AlertDialogCallback? = null
+    var sendErrorCallback: Boolean = false
 
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setCancelable(true)
+        setCancelable(false)
         setContentView(R.layout.enter_otp_dialog)
         val lp = WindowManager.LayoutParams()
         lp.copyFrom(window!!.attributes)
@@ -24,11 +25,26 @@ class EnterOTPDialog(context: Context, alertDialogcallbacl: AlertDialogCallback)
         window!!.setBackgroundDrawableResource(R.color.transparent)
         window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         this.altertDialogCallback = alertDialogcallbacl
-        doneBtn.setOnClickListener { dismiss() }
+
+
+        doneBtn.setOnClickListener {
+            if (firstPinView.text.toString().equals(startotp)) {
+                dismiss()
+                //for testing purpose only
+            }
+            else {
+                firstPinView.text!!.clear()
+                sendErrorCallback = true
+                dismiss()
+            }
+        }
     }
 
     override fun dismiss() {
         super.dismiss()
-        altertDialogCallback?.onDissmiss()
+        if (sendErrorCallback)
+            altertDialogCallback?.onDissmiss(false)
+        else
+            altertDialogCallback?.onDissmiss(true)
     }
 }
